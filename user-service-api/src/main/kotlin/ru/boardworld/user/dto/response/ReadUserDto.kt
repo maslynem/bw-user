@@ -6,5 +6,5 @@ data class ReadUserDto(
     val id: UUID,
     val username: String,
     val displayedName: String,
-    val email: String
+    val roles: Set<String>
 )

@@ -58,4 +58,8 @@ class UserService(
             throw EmailAlreadyExistsException(email)
         }
     }
+
+    @Transactional(readOnly = true)
+    fun findByUsername(username: String): User =
+        userRepository.findByUsername(username) ?: throw UserNotFoundException(username)
 }

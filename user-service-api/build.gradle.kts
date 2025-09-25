@@ -1,24 +1,20 @@
 plugins {
-    id("io.spring.dependency-management")
+    alias(libs.plugins.jetbrains.kotlin.jvm)
+    alias(libs.plugins.jetbrains.kotlin.spring)
+    alias(libs.plugins.spring.dependency.management)
     id("java-library")
     id("maven-publish")
-    kotlin("plugin.spring")
-    kotlin("jvm")
 }
 
 description = "Библиотека bw-user API"
 
-dependencyManagement {
-    imports {
-        mavenBom("org.springframework.boot:spring-boot-dependencies:3.4.0")
-        mavenBom("org.springframework.cloud:spring-cloud-dependencies:2023.0.1")
-    }
-}
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.springframework.boot:spring-boot-starter")
-    api("org.springframework.boot:spring-boot-starter-validation")
-    api("org.springframework.cloud:spring-cloud-starter-openfeign")
+    implementation(platform(libs.spring.boot.bom))
+    api(platform(libs.spring.cloud.bom))
+    implementation(libs.kotlin.reflect)
+    api(libs.spring.boot.starter)
+    api(libs.spring.boot.starter.validation)
+    api(libs.spring.boot.starter.openfeign)
 }
 
 publishing {
