@@ -1,11 +1,11 @@
-package ru.boardworld.bw_user
+package ru.boardworld.user
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class BwUserApplication
+class BwUserServiceApplication
 
 fun main(args: Array<String>) {
-	runApplication<BwUserApplication>(*args)
+    runApplication<BwUserServiceApplication>(*args)
 }

@@ -1,0 +1,36 @@
+server:
+  port: ${SERVER_PORT:8081}
+spring:
+  application:
+    name: bw-user
+  liquibase:
+    enabled: true
+    default-schema: bw_user
+  datasource:
+    url: ${URL_DB:jdbc:postgresql://localhost:5432/db?currentSchema=bw_user}
+    username: ${USERNAME_DB:postgres}
+    password: ${PASSWORD_DB:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: validate
+        format_sql: false
+        show_sql: true
+    open-in-view: false
+
+bw:
+  web:
+    external:
+      user-base-url: external/api/v1/user
+    internal:
+      user-base-url: internal/api/v1/user
+  web-security:
+    permissions:
+      - ${bw.web.external.user-base-url}/check-username
+      - ${bw.web.external.user-base-url}/check-email
+      - ${bw.web.internal.user-base-url}/**
+logging:
+  level:
+    ru.boardworld.*: DEBUG

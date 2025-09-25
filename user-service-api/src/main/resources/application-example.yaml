@@ -1,0 +1,4 @@
+bw:
+  web:
+    user:
+      url: ${BW_WEB_USER_URL:http://bw-user}
