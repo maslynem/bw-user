@@ -2,29 +2,25 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.jvm)
     alias(libs.plugins.jetbrains.kotlin.spring)
     alias(libs.plugins.spring.dependency.management)
-    id("java-library")
-    id("maven-publish")
+    `java-library`
+    `maven-publish`
 }
-
-description = "Библиотека bw-user API"
 
 dependencies {
-    api(platform(libs.spring.cloud.bom))
-    implementation(libs.kotlin.reflect)
-    api(project(":data"))
-    api(libs.spring.boot.starter)
-    api(libs.spring.boot.starter.openfeign)
-    implementation(libs.bw.commons.rest.starter)
+    api(platform(libs.spring.boot.bom))
+    api(libs.spring.boot.starter.validation)
 }
+
 java {
     withSourcesJar()
 }
+
 publishing {
     publications {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
             groupId = project.group.toString()
-            artifactId = "user-service-api"
+            artifactId = "user-data" // можно назвать по-хорошему; по умолчанию будет project.name ("data")
             version = project.version.toString()
         }
     }
@@ -39,4 +35,3 @@ publishing {
         }
     }
 }
-

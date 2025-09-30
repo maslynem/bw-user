@@ -1,6 +1,5 @@
 package ru.boardworld.user.service
 
-import org.springframework.data.repository.findByIdOrNull
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -42,7 +41,7 @@ class UserService(
 
     @Transactional(readOnly = true)
     fun findById(id: UUID): User {
-        return userRepository.findByIdOrNull(id) ?: throw UserNotFoundException(id)
+        return userRepository.findById(id).orElseThrow { UserNotFoundException(id) }!!
     }
 
     @Transactional(readOnly = true)

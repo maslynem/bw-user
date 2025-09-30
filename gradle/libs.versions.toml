@@ -5,6 +5,7 @@ springDependencyManagement = "1.1.7"
 springCloud = "2024.0.2"
 mapstruct = "1.6.3"
 bwCommonsWebSecurityStarter = "1.0.4-SNAPSHOT"
+bwCommonsRestStarter = "1.0.5-SNAPSHOT"
 
 [libraries]
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect" }
@@ -20,7 +21,8 @@ spring-boot-starter-openfeign = { module = "org.springframework.cloud:spring-clo
 postgresql = { module = "org.postgresql:postgresql" }
 liquibase-core = { module = "org.liquibase:liquibase-core" }
 
-web-security-starter = { module = "ru.boardworld.commons:web-security-starter", version.ref = "bwCommonsWebSecurityStarter" }
+bw-commons-web-security-starter = { module = "ru.boardworld.commons:web-security-starter", version.ref = "bwCommonsWebSecurityStarter" }
+bw-commons-rest-starter = { module = "ru.boardworld.commons:rest-commons-starter", version.ref = "bwCommonsRestStarter" }
 
 mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct" }
 mapstruct-processor = { module = "org.mapstruct:mapstruct-processor", version.ref = "mapstruct" }

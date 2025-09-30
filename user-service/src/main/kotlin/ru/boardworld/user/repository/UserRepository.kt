@@ -12,4 +12,7 @@ interface UserRepository : JpaRepository<User, UUID> {
 
     @EntityGraph(attributePaths = ["roles"])
     fun findByUsername(username: String): User?
+
+    @EntityGraph(attributePaths = ["roles"])
+    override fun findById(id: UUID): Optional<User?>
 }

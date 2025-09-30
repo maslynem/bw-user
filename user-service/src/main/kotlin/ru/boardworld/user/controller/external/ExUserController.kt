@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import ru.boardworld.commons.web.security.model.user.AuthenticatedUser
+import ru.boardworld.user.dto.response.external.ExReadUserDto
 import ru.boardworld.user.mapper.UserMapper
 import ru.boardworld.user.service.UserService
 
@@ -17,8 +18,8 @@ class ExUserController(
 ) {
 
     @GetMapping("/me")
-    fun getCurrentUser(@AuthenticationPrincipal authenticatedUser: AuthenticatedUser) =
-        userMapper.toDto(userService.findById(authenticatedUser.id))
+    fun getCurrentUser(@AuthenticationPrincipal authenticatedUser: AuthenticatedUser) : ExReadUserDto =
+        userMapper.toExDto(userService.findById(authenticatedUser.id))
 
 
     @GetMapping("check-username")

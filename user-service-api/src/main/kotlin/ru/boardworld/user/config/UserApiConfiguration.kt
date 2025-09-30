@@ -7,6 +7,6 @@ import ru.boardworld.user.api.UserServiceApi
 
 @AutoConfiguration
 @EnableConfigurationProperties(UserApiProperties::class)
-@EnableFeignClients(clients = [UserServiceApi::class])
+@EnableFeignClients(basePackageClasses = [UserServiceApi::class], clients = [UserServiceApi::class])
 class UserApiConfiguration {
 }

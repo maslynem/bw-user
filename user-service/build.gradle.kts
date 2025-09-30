@@ -27,9 +27,9 @@ dependencies {
     runtimeOnly(libs.postgresql)
     implementation(libs.liquibase.core)
 
-    implementation(project(":user-service-api"))
+    api(project(":data"))
 
-    implementation(libs.web.security.starter)
+    implementation(libs.bw.commons.web.security.starter)
 
     implementation(libs.mapstruct)
     kapt(libs.mapstruct.processor)
