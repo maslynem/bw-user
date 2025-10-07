@@ -1,6 +1,7 @@
 package ru.boardworld.user.entity
 
 import jakarta.persistence.*
+import org.hibernate.annotations.CreationTimestamp
 import org.hibernate.annotations.UpdateTimestamp
 import java.time.OffsetDateTime
 import java.util.*
@@ -25,7 +26,7 @@ class User (
     var passwordHash: String? = null,
 
     @Column(name = "created_at", nullable = false, updatable = false)
-//    @CreationTimestamp
+    @CreationTimestamp
     var createdAt: OffsetDateTime? = null,
 
     @Column(name = "updated_at", nullable = false)

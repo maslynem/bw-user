@@ -33,9 +33,7 @@ class UserService(
             email = dto.email,
             passwordHash = passwordHash,
             roles = mutableSetOf(userRole),
-            createdAt = OffsetDateTime.now(),
             lastLogin = OffsetDateTime.now())
-
         return userRepository.save(user)
     }
 
